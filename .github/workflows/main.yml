@@ -1,0 +1,25 @@
+name: Hello world Workflow
+
+on:
+  push:
+    branches:
+      - develop
+      
+jobs:
+  deploy: 
+  
+    runs-on: self-hosted
+    
+    steps: 
+      - uses: actions/checkout@v3 
+      - uses: actions/setup-node@v3.6.0
+      
+      - name: Install dependencies
+        run: | 
+          /home/opencts/.nvm/versions/node/v18.14.2/bin/yarn install
+          
+      - name: Make deployment
+        run: |
+          /home/opencts/.nvm/versions/node/v18.14.2/bin/pm2 src/main.js --name hello-world
+      
+  
