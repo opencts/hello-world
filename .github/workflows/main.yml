@@ -23,6 +23,6 @@ jobs:
           
       - name: Make deployment
         run: |
-          /home/opencts/.nvm/versions/node/v18.14.2/bin/pm2 start ./src/main.js --name hello-world
+          /home/opencts/.nvm/versions/node/v18.14.2/bin/pm2 restart ./src/main.js --name hello-world
       
   
